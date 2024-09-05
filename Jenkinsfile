@@ -24,10 +24,11 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-        stage('Test-Plugin') {
-            steps {
-                step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'me@me.com', sendToIndividuals: true])
+        post{
+            always {
+                step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'winnhat2000@gmail.com', sendToIndividuals: true])
+
             }
-        }    
+        }
     }
 }
