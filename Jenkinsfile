@@ -26,15 +26,7 @@ pipeline {
         }
         stage('Test-Plugin') {
             steps {
-                try{
-                    sh 'exit 1'
-                    currentBuild.result = 'SUCCESS'
-                } catch (any) {
-                    currentBuild.result = 'FAILURE'
-                    throw any
-                } finally {
-                    step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'me@me.com', sendToIndividuals: true])
-                }
+                step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'me@me.com', sendToIndividuals: true])
             }
         }    
     }
