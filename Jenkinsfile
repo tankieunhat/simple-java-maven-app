@@ -33,7 +33,7 @@ pipeline {
                     currentBuild.result = 'FAILURE'
                     throw any
                 } finally {
-                    step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'me@me.com', sendToIndividuals: true]])
+                    step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'me@me.com', sendToIndividuals: true])
                 }
         }
 
